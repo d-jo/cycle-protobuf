@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+// Not always a valid ethereum address, the rules for ID's follow the ethereum rules because it uses keccak256
+message Address {
+	// a keccak256 hash representing the entity uniquely
+	string addr = 1;
+	int32 balance = 2;
+}
+
+message Model {
+	Address owner = 1;
+	Address address = 2;
+	int32 gas = 3;
+	bytes data = 4;
+}
+
+message internalData {
+	Address owner = 1;
+	Address target = 2;
+	
+}
+
+message PreprocessedData {
+	internalData header = 1;
+}
+
+message PostprocessedData {
+	internalData header = 1;	
+
+}
